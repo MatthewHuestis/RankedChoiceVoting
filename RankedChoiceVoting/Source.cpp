@@ -2,5 +2,7 @@
 //notes: highest county number avaliable is 123
 
 int main() {
-	startVotingSystem();
+	votingSystem Alpha;
+	Alpha.startSystem();
 }
+
