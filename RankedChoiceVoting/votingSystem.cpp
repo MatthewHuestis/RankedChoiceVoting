@@ -63,7 +63,7 @@ void votingSystem::readVotes(){
 	cout << " \tCOUNTY CODE\t A  B  C  D  E" << endl;
 	// note: county FIPS codes are only odd numbers
 	for (int i = 1; i < 124; i += 2) {
-		cout << setw(10) << i << "\t\t";
+		cout << setw(15) << i << "\t\t";
 		for (int j = 0; j < 5; j++) {
 			cout << countyVote[i][j] << " ";
 		}
