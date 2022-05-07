@@ -14,7 +14,7 @@ void votingSystem::startSystem() {
 
 void votingSystem::readVotes(){
 	//file that contains voting data 
-	ifstream file("vote.txt", ios::in);
+	ifstream file("data.txt", ios::in);
 
 	//error condition for file reading 
 	if (!file) {
@@ -82,11 +82,11 @@ void votingSystem::tallyVotes() {
 	}
 
 	//array for the percent of each vote for each candiate
-	float candPerc[5] = { 0 };
+	double candPerc[5] = { 0 };
 
 	//loop to calculate the percentage of each candiate vote
 	for (int k{ 0 }; k < 5; k++) {
-		candPerc[k] = static_cast<float>(candiate[k]) / static_cast<float>(tally);
+		candPerc[k] = static_cast<double>(candiate[k]) / static_cast<double>(tally);
 	}
 
 	//displaying results from iteration.
@@ -124,7 +124,8 @@ void votingSystem::tallyVotes() {
 
 		//finding next non dropped canidate that hasnt been dropped yet.
 		for (int i{ 0 }; i < 5; i++)
-			if (candPerc[i] < candPerc[drop] && candiate[i]> 0)	drop = i;
+			if (candiate[drop] == 0.0000000000000000) drop = i;
+			else if (candiate[i] > 0.0000000000000000 && candPerc[i] < candPerc[drop])	drop = i;
 		//drop lowest candiate
 		dropCand(drop+1);
 
